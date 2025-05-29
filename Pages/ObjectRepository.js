@@ -1,6 +1,7 @@
 export class loginPageRepository{
 
     mainUrl = 'https://www.saucedemo.com/';
+    expectedUrl = 'https://www.saucedemo.com/inventory.html';
     loginLogo = "/html[1]/body[1]/div[1]/div[1]/div[1]";
     plpLogo = '/html[1]/body[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]';
     errorPop = '/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/form[1]/div[3]/h3[1]';

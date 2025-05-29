@@ -4,7 +4,7 @@
   },
   "scripts": {
 	"test": "mocha --timeout=10000 tests/**/*.spec.js"
-},
+  },
   "type": "module",
   "devDependencies": {
     "chai": "^5.2.0",

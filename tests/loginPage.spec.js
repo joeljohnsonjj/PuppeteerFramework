@@ -18,7 +18,7 @@ before(async function () {
   await global.browser.close();
 }); */
 
-describe('smoke test', function () {
+describe('Login Tests', function () {
   let page, users;
   before(async function () {
     page = await browser.newPage();
@@ -32,6 +32,9 @@ describe('smoke test', function () {
   it("Should Perform Valid Logins", async function () {
     for (const user of users) {
         obj2.loginPage(page, user.username, user.password);
+        await page.waitForNavigation();
+        expect(page.url()).to.equal(obj1.expectedUrl);
+        await page.goto(obj1.mainUrl);
     }
   });
 });
