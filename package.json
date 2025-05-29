@@ -2,5 +2,12 @@
   "dependencies": {
     "puppeteer": "^24.8.2"
   },
-  "type" : "module"
+  "scripts": {
+	"test": "mocha --timeout=10000 tests/**/*.spec.js"
+},
+  "type": "module",
+  "devDependencies": {
+    "chai": "^5.2.0",
+    "mocha": "^11.5.0"
+  }
 }
