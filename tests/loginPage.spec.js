@@ -13,23 +13,24 @@ before(async function () {
     "headless": false,
   });
 });
-// close the browser when the tests are finished
+
 /* after(async function () {
   await global.browser.close();
 }); */
 
 describe('Login Tests', function () {
-  let page, users;
+  let page;
   before(async function () {
     page = await browser.newPage();
     await page.goto(obj1.mainUrl);
-    users = JSON.parse(readFileSync("fixtures/validTestLogins.json", "utf-8"));
   });
-  // close browser tab after all tests
+  
   /* after(async function () {
     await page.close();
   }); */
-  it("Should Perform Valid Logins", async function () {
+
+  it("Valid Logins", async function () {
+    const users = JSON.parse(readFileSync("fixtures/validTestLogins.json", "utf-8"));
     for (const user of users) {
         obj2.loginPage(page, user.username, user.password);
         await page.waitForNavigation();
@@ -37,4 +38,12 @@ describe('Login Tests', function () {
         await page.goto(obj1.mainUrl);
     }
   });
+
+  it.only("Invalid Logins", async function () {
+    const users = JSON.parse(readFileSync("fixtures/invalidTestLogins.json", "utf-8"));
+    for (const user of users) {
+        await obj2.loginPage(page, user.username, user.password);
+    }
+  });
+
 });
